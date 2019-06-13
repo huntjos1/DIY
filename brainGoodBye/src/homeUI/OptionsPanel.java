@@ -2,7 +2,6 @@ package homeUI;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Insets;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -15,20 +14,14 @@ import javax.swing.JPanel;
 /**
  * 
  * @author Hunter Lantz
- *
+ * @author Joey Hunt (minor edits)
  */
 public class OptionsPanel extends JPanel{
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -4082397240874219557L;
 	
-	
-	
-	
 	private Thumbnail mySelected;
-	
 	
 	private PropertyChangeSupport Pcs= new PropertyChangeSupport(this);
 	
@@ -37,17 +30,13 @@ public class OptionsPanel extends JPanel{
 	private JButton openProject;
 	
 	/**
-	 * 
-	 * 
 	 * @author Hunter Lantz
-	 * @author Joey Hunt
+	 * @author Joey Hunt (minor edits)
 	 */
 	public OptionsPanel() {
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		JButton ExportSettings = new JButton("Export Settings");
-		// Hunter: for what ever reason, these buttons only work for me when I call
-		// JPanel's native firePropertyChange without using the pcs. Joey
 		ExportSettings.addActionListener(theEvent -> firePropertyChange("ESettings",false,true));
 		JButton ImportSettings = new JButton("Import Settings");
 		ImportSettings.addActionListener(theEvent -> firePropertyChange("ISettings",false,true));
@@ -55,7 +44,7 @@ public class OptionsPanel extends JPanel{
 		ExportProjects.addActionListener(theEvent -> firePropertyChange("EProjects",false,true));
 		JButton ImportProjects = new JButton("Import Projects");
 		ImportProjects.addActionListener(theEvent -> firePropertyChange("IProjects",false,true));
-		//TODO Fully implement add and delete functions.
+		
 		JButton addProject = new JButton("New Project");
 		addProject.addActionListener(theEvent -> firePropertyChange("New", false, true));
 		

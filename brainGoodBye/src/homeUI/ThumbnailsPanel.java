@@ -8,9 +8,6 @@ import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
-import brainGoodBye.Project;
 
 /**
  * This panel contains the concise views of projects.
@@ -29,6 +26,9 @@ public class ThumbnailsPanel extends JPanel implements PropertyChangeListener {
 	 */
 	private List<Thumbnail> myThumbnails;
 	
+	/**
+	 * The current sorting option.
+	 */
 	private String mySort = "Cost";
 	
 	/**

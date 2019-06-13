@@ -4,11 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 import brainGoodBye.FileManager;
 
@@ -16,6 +13,7 @@ import brainGoodBye.FileManager;
  * This class represents the initial UI of the program.
  * 
  * @author Jacob Ficker
+ * @author Joey Hunt (minor edits)
  */
 public class HomeUI extends JFrame {
 
@@ -46,17 +44,17 @@ public class HomeUI extends JFrame {
 	private final TheMenuBar menuBar;
 	
 	/**
-	 * 
+	 * A panel for displaying buttons.
 	 */
 	private final OptionsPanel optionsPanel;
 	
 	/**
-	 * 
+	 * Manages export and import functions.
 	 */
 	private final FileManager fileManager;
 	
 	/**
-	 * 
+	 * Displays concise project views.
 	 */
 	private final ProjectPanel projectPanel;
 	

@@ -6,7 +6,6 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -41,20 +40,23 @@ public class ProjectPanel extends JPanel implements PropertyChangeListener {
 	private ThumbnailsPanel thumbnailPanel;
 	
 	/**
-	 * 
+	 * A list of projects.
 	 */
 	private List<Project> myProjects;
 	
 	/**
-	 * 
+	 * Manages export and import functions.
 	 */
 	private FileManager myManager;
 	
+	/**
+	 * A panel which displays buttons.
+	 */
 	private OptionsPanel myOptions;
 
 	/**
 	 * Creates a project panel.
-	 * @author Hunter
+	 * @author Hunter Lantz
 	 * @author Joey Hunt
 	 */
 	ProjectPanel(final FileManager manager, OptionsPanel options) {
@@ -88,7 +90,7 @@ public class ProjectPanel extends JPanel implements PropertyChangeListener {
 
 	
 	/**
-	 * @author Hunter
+	 * @author Hunter Lantz
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -97,7 +99,6 @@ public class ProjectPanel extends JPanel implements PropertyChangeListener {
 			final ProjectView view = new ProjectView();
 			
 			view.getViewListener().addPropertyChangeListener("Created Project", this);
-			//addPropertyChangeListener("Created Project", view.getViewListener());
 		} else if ("Created Project".equals(e.getPropertyName())) {
 			final Project project = (Project)e.getNewValue();
 			if(!myProjects.contains(project)) {
@@ -109,13 +110,11 @@ public class ProjectPanel extends JPanel implements PropertyChangeListener {
 			repaint();
 		} else if ("Delete".equals(e.getPropertyName())) {
 			Thumbnail thumb = (Thumbnail)e.getNewValue();
-			//if (!myProjects.isEmpty()) {
-				myProjects.remove(thumb.getProject());
-				thumbnailPanel.removeThumbnail(thumb);
-				
-				revalidate();
-				repaint();
-			//}
+			myProjects.remove(thumb.getProject());
+			thumbnailPanel.removeThumbnail(thumb);
+
+			revalidate();
+			repaint();
 		} else if ("Import All".equals(e.getPropertyName())) {
 			myProjects = (List<Project>)e.getNewValue();
 			
